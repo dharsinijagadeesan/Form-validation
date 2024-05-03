@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #ff9f9f;
+            background-image: url(d2.jpg);
+        }
+
+        .container {
+            width: 60%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            text-align: center;
+            color: #030568;
+            font-family: 'Courier New', Courier, monospace;
+             
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        #cc{
+            width:8%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            display: inline-block;
+        }
+
+        #mob{
+            display: inline-block;
+            padding:8px;
+            width:91%;
+            
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="email"],
+        .input-group textarea,
+        .input-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .input-group input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .button-group {
+            text-align: center;
+        }
+
+        .button-group input[type="submit"]
+        {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #11da5e;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-group input[type="reset"] {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4a74e7;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-group input[type="reset"]:hover {
+            background-color: #0056b3;
+        }
+
+        .button-group input[type="submit"]:hover
+        {
+            background-color: #14a154;
+        }
+
+        #displayDetails {
+            display: none;
+            margin-top: 30px;
+        }
+
+        #displayDetails h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        #displayDetails p {
+            margin-bottom: 10px;
+        }
+
+        div p:not(div fieldset p){
+            font-size: x-small;
+            color: #535353;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>REGISTRATION FORM</h1>
+    <form name="myform" onsubmit="return validateForm()" method="post">
+
+        <div class="input-group">
+            <label>Name </label> 
+            <input type="text" size="15" name="name"  placeholder="Enter your name"><br><br>
+        </div>
+
+        <div class="input-group">
+            <label>Initial </label> 
+            <input type="text" size="15" name="initial" placeholder="Enter your initial"><br><br>
+        </div>
+
+        <div class="input-group">
+            <label>Email id</label>
+            <p>Your email should be a valid one. eg., abc@gmail.com</p>
+            <input type="email" size="15" name="mailid" placeholder="Enter your mailid"><br><br>
+        </div>
+        
+
+        <div class="input-group">
+            <label>Mobile Number</label>
+            <p>Mobile number should not contain more than 10 digits</p>
+            <input type="text" size="2" id="cc" name="country-code" value="+91" >
+            <input type="text" size="10" id="mob" name="mobile_number" placeholder="Enter your mobile number"><br><br>
+        </div>
+        
+
+        <div class="input-group">
+            <label>Gender</label>
+            <input type="radio" name="gender" value="Male" >Male
+            <input type="radio" name="gender" value="Female" >Female
+            <br><br>
+        </div>
+
+        <div class="input-group">
+            <label>Address</label>
+            <textarea name="address" cols="15" rows="5" placeholder="Enter your address"></textarea><br><br>
+        </div>
+
+        <div class="input-group">
+            <label>Course </label>
+            <select name="course" >
+                <option value="">Select Course</option>
+                <option value="CSE">CSE</option>
+                <option value="IT">IT</option>
+                <option value="CSD">CSD</option>
+                <option value="EIE">EIE</option>
+                <option value="EEE">EEE</option>
+                <option value="ECE">ECE</option>
+                <option value="FT">FT</option>
+                <option value="AIML">AIML</option>
+                <option value="AIDS">AIDS</option>
+                <option value="CIVIL">CIVIL</option>
+                <option value="MECG">MECH</option>
+                <option value="AUTO">AUTO</option>
+                <option value="CHEMICAL">CHEMICAL</option> 
+            </select><br><br>
+        </div>
+
+        <div class="input-group">
+            <label>Areas of Interest</label>
+            <input type="checkbox" name="area" value="Artificial Intelligence">Artificial Intelligence<br>
+            <input type="checkbox" name="area" value="Web Development">Web Development<br>
+            <input type="checkbox" name="area" value="App Development">App Development<br>
+            <input type="checkbox" name="area" value="User Experience (UI & UX)">User Experience (UI & UX)<br>
+            <input type="checkbox" name="area" value="Data Science">Data Science<br>
+            <input type="checkbox" name="area" value="Machine Learning">Machine Learning<br>
+            <input type="checkbox" name="area" value="DBMS">DBMS<br><br>
+        </div>
+
+        <div class="input-group">
+            <label>City</label>  
+            <input type="text" size="15" name="city" placeholder="Enter your city"><br><br>
+        </div>
+
+        <div class="input-group">
+            <label>Pincode </label> 
+            <p>Pincode should not exceed 6 digits</p>
+            <input type="text" size="15" name="pincode" placeholder="Enter your pincode"><br><br>
+        </div>
+        
+
+        <div class="input-group">
+            <label>State </label> 
+            <input type="text" size="15" name="state" placeholder="Enter your state"><br><br>
+        </div>
+
+        <div class="input-group">
+            <label>Country </label> 
+            <input type="text" size="15" name="country" value="India" ><br><br>
+        </div>
+        
+        <div class="button-group">
+            <input type="submit" value="Submit">
+            <input type="reset" size="15" value="Reset">
+        </div>
+    </form>
+
+    
+    <div id="displayDetails">
+        <fieldset>
+        <legend><h2> Entered Details </h2></legend> 
+        <p>Name: <span id="fnameDisplay"></span></p>
+        <p>Initial: <span id="lnameDisplay"></span></p>
+        <p>Email: <span id="mailDisplay"></span></p>
+        <p>Mobile: <span id="mobDisplay"></span></p>
+        <p>Gender: <span id="genderDisplay"></span></p>
+        <p>Address: <span id="addDisplay"></span></p>
+        <p>Course: <span id="courseDisplay"></span></p>
+        <p>Areas of Interest: <span id="areaDisplay"></span></p>
+        <p>City: <span id="cityDisplay"></span></p>
+        <p>Pincode: <span id="pincDisplay"></span></p>
+        <p>State: <span id="stateDisplay"></span></p>
+        <p>Country: <span id="countryDisplay"></span></p>
+    </fieldset> 
+    </div>
+
+    <script>
+        const formInputs = document.querySelectorAll('form[name="myform"] input, form[name="myform"] select, form[name="myform"] textarea');
+
+        formInputs.forEach((input, index) => {
+            input.addEventListener('focus', function () {
+                var prevInput = formInputs[index - 1];
+                if (prevInput && prevInput.value.trim() === '') {
+                    var fieldName = prevInput.getAttribute('name');
+                    alert("Please fill out the " + fieldName + " field first");
+                    prevInput.focus();
+                }
+            });
+        });
+
+        function validateForm() {
+            let x = document.forms["myform"]["name"].value;
+            if (x == "") {
+                alert("Firstname cannot be empty");
+                return false;
+            }
+
+            let email = document.forms["myform"]["mailid"].value;
+            if (email == "") {
+                alert("Email id cannot be empty");
+                return false;
+            }
+
+            let mobile = document.forms["myform"]["mobile_number"].value;
+            if (mobile == "") {
+                alert("Mobile Number cannot be empty");
+                return false;
+            }
+
+            if (!/^\d{10}$/.test(mobile)) {
+                alert("Mobile Number must be exactly 10 digits long and contain only numeric characters");
+                return false;
+            }
+
+            let genderSelected = false;
+            let genderRadios = document.getElementsByName("gender");
+            for (let i = 0; i < genderRadios.length; i++) {
+                if (genderRadios[i].checked) {
+                    genderSelected = true;
+                    break;
+                }
+            }
+            if (!genderSelected) {
+                alert("Please select a Gender");
+                return false;
+            }
+
+            let address = document.forms["myform"]["address"].value;
+            if (address == "") {
+                alert("Address cannot be empty");
+                return false;
+            }
+
+            let course = document.forms["myform"]["course"].value;
+            if (course == "") {
+                alert("Please select a Course");
+                return false;
+            }
+
+            let areasOfInterestChecked = false;
+            let areasOfInterestCheckboxes = document.getElementsByName("area");
+            for (let i = 0; i < areasOfInterestCheckboxes.length; i++) {
+                if (areasOfInterestCheckboxes[i].checked) {
+                    areasOfInterestChecked = true;
+                    break;
+                }
+            }
+            if (!areasOfInterestChecked) {
+                alert("Please select at least one Area of Interest");
+                return false;
+            }
+
+            let city = document.forms["myform"]["city"].value;
+            if (city == "") {
+                alert("City cannot be empty");
+                return false;
+            }
+
+            let pincode = document.forms["myform"]["pincode"].value;
+            if (pincode == "") {
+                alert("Pincode cannot be empty");
+                return false;
+            }
+            if (!/^\d{6}$/.test(pincode)) {
+                alert("Pincode must be exactly 6 digits");
+                return false;
+            }
+
+            let state = document.forms["myform"]["state"].value;
+            if (state == "") {
+                alert("State cannot be empty");
+                return false;
+            }
+
+            let country = document.forms["myform"]["country"].value;
+            if (country == "") {
+                alert("Country cannot be empty");
+                return false;
+            }
+
+            displayDetails();
+            return false;
+        }
+
+        function displayDetails() {
+            document.getElementById("fnameDisplay").textContent = document.forms["myform"]["name"].value;
+            document.getElementById("lnameDisplay").textContent = document.forms["myform"]["initial"].value;
+            document.getElementById("mailDisplay").textContent = document.forms["myform"]["mailid"].value;
+            document.getElementById("mobDisplay").textContent = document.forms["myform"]["country-code"].value + " " + document.forms["myform"]["mobile_number"].value;
+            document.getElementById("genderDisplay").textContent = document.querySelector('input[name="gender"]:checked').value;
+            document.getElementById("addDisplay").textContent = document.forms["myform"]["address"].value;
+            document.getElementById("courseDisplay").textContent = document.forms["myform"]["course"].value;
+            
+            let areasOfInterest = [];
+            let areasOfInterestCheckboxes = document.getElementsByName("area");
+            for (let i = 0; i < areasOfInterestCheckboxes.length; i++) {
+                if (areasOfInterestCheckboxes[i].checked) {
+                    areasOfInterest.push(areasOfInterestCheckboxes[i].value);
+                }
+            }
+            document.getElementById("areaDisplay").textContent = areasOfInterest.join(", ");
+            
+            document.getElementById("cityDisplay").textContent = document.forms["myform"]["city"].value;
+            document.getElementById("pincDisplay").textContent = document.forms["myform"]["pincode"].value;
+            document.getElementById("stateDisplay").textContent = document.forms["myform"]["state"].value;
+            document.getElementById("countryDisplay").textContent = document.forms["myform"]["country"].value;
+
+            document.getElementById("displayDetails").style.display = "block";
+        }
+    </script>
+</div>
+
+</body>
+</html>
